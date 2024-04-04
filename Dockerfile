@@ -37,6 +37,8 @@ RUN ls src && \
         android-libselinux \
         android-libsparse \
         android-libcutils \
+        fuse \
+        fuse2fs \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && dpkg -i /src/android-libext4-utils_8.1.0+r23-3_amd64.deb \
