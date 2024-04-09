@@ -21,3 +21,10 @@ RUN make
 FROM debian:12-slim
 
 COPY --from=build /src/make_ext4fs/make_ext4fs /usr/bin/make_ext4fs
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        fuse \
+        fuse2fs \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
