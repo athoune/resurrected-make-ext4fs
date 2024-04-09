@@ -8,14 +8,29 @@ Recent Android use _bazel_, making code reusing harder, and `make_ext4fs` vanish
 
 Some forks appears, and [OpenWRT's fork](https://git.openwrt.org/?p=project/make_ext4fs.git;a=summary) has also fresh patches.
 
-## Debian package
+## Flavors
+
+### Debian package
 
 Debian 8 did a tedious work of packaging android tools, dispatched in lots of packages.
 Ascendent compatibility has real meaning with Debian packaging : it's possible to rebuild this package done for Debian 8, in a Debian 12.
 
-## OpenWRT fork
+### OpenWRT fork
 
 OpenWRT eradicate all dependencies and boring stuffs.
 The project is now a bunch of C file, handled by a plain old _Makefile_.
 The unique dependency is `zlib`, and you can statically linked it.
 Even `glibc` is not a dependency, you can use `musl`.
+
+## Build it
+
+Here is two Dockerfiles to build `make_ext4fs`.
+
+```bash
+# git, make, and that's all
+make build-openwrt
+# The Debian danse for build the old package and installing it
+make build-debian
+# You can fetch built debian packages
+make deb
+```
